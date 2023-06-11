@@ -1,0 +1,63 @@
+{
+    "wshost" :  "ws://127.0.0.1:1225",
+    "token" :  "2675938688qweR",
+    "groupNameChanger" : {
+      "group": 673131032,
+      "nameprefix": "OWL Square",
+      "cmd": "/groupname",
+      "permittedusers": [
+        2752390156,
+        1472484377,
+        1797655094,
+        2675938688,
+        2994301760
+        ]
+    },
+    "customReply": {
+      "rules":[
+        {
+          "type": "group",
+          "groups": "any",
+          "regExp": "#测试",
+          "message": "👀"
+        },
+        {
+          "type": "group",
+          "groups": [
+            673131032
+          ],
+          "regExp": ".*ip.*",
+          "message": "OWL Server IP 🥳\n------------\n • 7th (Zodiac) (新周目)\n   IP：kupars.top\n   端口：19132\n   版本：1.19.8x\n------------\n • 6th. (Lavender)\n   IP：play.kupars.top\n   端口：19132\n   版本：1.19.8x"
+        },
+        {
+          "type": "private",
+          "regExp": "还活着吗",
+          "message": ":)"
+        }
+      ],
+      "nudgeReplies": [
+        {
+          "groups": [
+            673131032,
+            748430439
+          ],
+          "message": "¿"
+        }
+      ]
+    },
+    "webpageScreenshot": {
+      "prefix": "/shot ",
+      "permittedusers": [
+        2752390156,
+        1797655094,
+        2675938688,
+        1448259389,
+        2766024072,
+        2405097790,
+        1913703384,
+        2650636447,
+        3347741551
+      ],
+      "denyMessage": "无权限，有需要请找Alex (2752390156)"
+    }
+}
