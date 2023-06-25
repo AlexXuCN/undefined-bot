@@ -1,25 +1,13 @@
-module.exports = function groupNameChangerEntry(config, ws) {
-  return {
-    messageHandler: function (msg) {
-      const fun = {
+module.exports = function (config,bot,msg) {
+  const fun = {
         log: function (text) {
           console.log("[GroupNameChanger]" + text);
         },
         sendMessage: function (message) {
-          ws.send(
-            JSON.stringify(
-              {
-                action: "send_group_msg",
-                params: {
-                  group_id: config.group,
-                  message: message
-                }
-              }
-            )
-          )
+          bot.sendMessage.group(config.group,message);
         },
         changeName: function (name) {
-          ws.send(
+          bot.ws.send(
             JSON.stringify(
               {
                 action: "set_group_name",
@@ -31,21 +19,21 @@ module.exports = function groupNameChangerEntry(config, ws) {
             )
           )
         }
-      }
-      if (
-        msg.post_type == "message" &&
-        msg.group_id == config.group &&
-        msg.raw_message.startsWith(config.cmd) &&
-        !config.permittedusers.includes(msg.sender.user_id)
-      ) {
-        fun.sendMessage("Permission Denied.");
-      };
-      if (
-        msg.post_type == "message" &&
-        msg.group_id == config.group &&
-        msg.raw_message.startsWith(config.cmd) &&
-        config.permittedusers.includes(msg.sender.user_id)
-      ) {
+  }
+  if (
+    msg.post_type == "message" &&
+    msg.group_id == config.group &&
+    msg.raw_message.startsWith(config.cmd) &&
+    !config.permittedusers.includes(msg.sender.user_id)
+  ) {
+    fun.sendMessage("Permission Denied.");
+  };
+  if (
+    msg.post_type == "message" &&
+    msg.group_id == config.group &&
+    msg.raw_message.startsWith(config.cmd) &&
+    config.permittedusers.includes(msg.sender.user_id)
+  ) {
         if (
           msg.raw_message == config.cmd
         ) {
@@ -62,7 +50,5 @@ module.exports = function groupNameChangerEntry(config, ws) {
         } else {
           fun.sendMessage("命令格式:" + config.cmd + " <群名后缀>");
         };
-      }
-    }
   }
-}
+};

@@ -1,6 +1,6 @@
 @echo off
-title AlexĞ´µÄ»úÆ÷ÈË :)
-node entry.js
+chcp 65001
+title undefined-bot :)
 :BOT
 node entry.js
 goto BOT

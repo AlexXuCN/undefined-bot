@@ -1,6 +1,4 @@
 {
-    "wshost" :  "ws://127.0.0.1:1225",
-    "token" :  "2675938688qweR",
     "groupNameChanger" : {
       "group": 673131032,
       "nameprefix": "OWL Square",
@@ -59,5 +57,29 @@
         3347741551
       ],
       "denyMessage": "无权限，有需要请找Alex (2752390156)"
-    }
+    },
+    "biliParser": {
+      "groups": "any",
+      "whitelistMode": true
+    },
+    "mcmotd":{
+      "groups": "any",
+      "whitelistMode": true,
+      "command": {
+        "bedrock": "/motdbe",
+        "java": "/motdje"
+      },
+      "DNSServers": [
+        "1.1.1.1",
+        "223.5.5.5"
+      ],
+      "presets": [
+        {
+          "group":673131032,
+          "cmd": "/status",
+          "type": "bedrock",
+          "server": "kupars.top"
+        }
+      ]
+    } 
 }
